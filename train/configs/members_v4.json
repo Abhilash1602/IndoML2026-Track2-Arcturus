@@ -1,0 +1,8 @@
+{"asr1_best": ["mgan", "checkpoints/mgan_r2_asr1/final_best.pt"], "asr1s7": ["mgan", "checkpoints/mgan_r2_asr1_s7/final_best.pt"],
+ "asr3c": ["mgan", "checkpoints/mgan_r3_asr3c/last.pt"], "asr5": ["mgan", "checkpoints/mgan_r3_asr5/last.pt"],
+ "mf2ft": ["mf2", "checkpoints/mf2_ft/final_best.pt"], "ss": ["mf2ss", "checkpoints/mf2ss_ft/last.pt"],
+ "asr10": ["mgan", "checkpoints/mgan_r4_asr10/last.pt"], "asr5b": ["mgan", "checkpoints/mgan_r4_asr5b/last.pt"],
+ "res2": ["res", "checkpoints/mgan_res2/last.pt"], "ss2": ["mf2ss", "checkpoints/mf2ss_ft2/best.pt"],
+ "r5a": ["mgan", "checkpoints/mgan_r5a/last.pt"], "r5b": ["mgan", "checkpoints/mgan_r5b/last.pt"],
+ "v2": ["mgan", "checkpoints/mgan_ft_v2/final_best.pt"], "mganall": ["mgan", "checkpoints/mgan_ft_all/last.pt"],
+ "mf2all": ["mf2", "checkpoints/mf2_ft_all/last.pt"], "mf2long": ["mf2", "checkpoints/mf2_ft_long/best.pt"]}

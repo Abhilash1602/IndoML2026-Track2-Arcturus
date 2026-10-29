@@ -1,0 +1,18 @@
+# Python 3.12. Install PyTorch first (CUDA 13.0 wheels):
+#   pip install torch==2.13.0 torchaudio==2.11.0 --index-url https://download.pytorch.org/whl/cu130
+# then:  pip install -r requirements_inference.txt && pip install clearvoice==0.1.2 --no-deps
+# (clearvoice is installed without its dependencies because its pinned requirements conflict with torch 2.13.)
+numpy==2.5.3
+scipy==1.18.1
+soundfile==0.14.0
+librosa==1.0.0
+einops==0.8.2
+rotary-embedding-torch==0.9.1
+torchinfo==1.8.0
+yamlargparse==1.31.1
+pyyaml==6.0.3
+joblib==1.6.0
+packaging==26.3
+sentencepiece==0.2.2
+huggingface_hub==1.28.0
+transformers==5.17.0

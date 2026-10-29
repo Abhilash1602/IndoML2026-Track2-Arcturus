@@ -1,0 +1,7 @@
+# Training environment = inference environment plus the packages below (Python 3.12, torch 2.13.0 + CUDA 13.0).
+#   pip install torch==2.13.0 torchaudio==2.11.0 --index-url https://download.pytorch.org/whl/cu130
+#   pip install -r requirements_train.txt && pip install clearvoice==0.1.2 --no-deps
+-r requirements_inference.txt
+datasets==5.0.1        # Vaani Noise-Event dataset (clean-speech bank)
+jiwer==4.0.0           # WER for local evaluation
+scikit-learn==1.9.1

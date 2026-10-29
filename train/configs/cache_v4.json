@@ -1,0 +1,4 @@
+{"src": "data/fusion/train_v2.npz", "dst": "data/fusion/train_v4.npz",
+ "new": [["r5a", "mgan", "checkpoints/mgan_r5a/last.pt"], ["r5b", "mgan", "checkpoints/mgan_r5b/last.pt"],
+         ["v2", "mgan", "checkpoints/mgan_ft_v2/final_best.pt"], ["mganall", "mgan", "checkpoints/mgan_ft_all/last.pt"],
+         ["mf2all", "mf2", "checkpoints/mf2_ft_all/last.pt"], ["mf2long", "mf2", "checkpoints/mf2_ft_long/best.pt"]]}

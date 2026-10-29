@@ -1,0 +1,54 @@
+# Final Track 2 inference configuration (Phase 2 submission: Combined 16.6113).
+# 18 fine-tuned separators -> 4 learned TF fusions averaged with the given weights -> event-conditioned strength.
+# Paths are relative to the repository root.
+separators:
+- {name: asr1_best, type: mossformergan, ckpt: checkpoints/asr1_best.pt, window_s: 6}
+- {name: asr1s7, type: mossformergan, ckpt: checkpoints/asr1s7.pt, window_s: 6}
+- {name: asr3c, type: mossformergan, ckpt: checkpoints/asr3c.pt, window_s: 6}
+- {name: asr5, type: mossformergan, ckpt: checkpoints/asr5.pt, window_s: 6}
+- {name: mf2ft, type: mossformer2, ckpt: checkpoints/mf2ft.pt, window_s: 3}
+- {name: ss, type: mossformer2_ss, ckpt: checkpoints/ss.pt, window_s: 2}
+- {name: asr10, type: mossformergan, ckpt: checkpoints/asr10.pt, window_s: 6}
+- {name: asr5b, type: mossformergan, ckpt: checkpoints/asr5b.pt, window_s: 6}
+- {name: res2, type: mossformergan_res, ckpt: checkpoints/res2.pt, window_s: 6}
+- {name: ss2, type: mossformer2_ss, ckpt: checkpoints/ss2.pt, window_s: 2}
+- {name: r5a, type: mossformergan, ckpt: checkpoints/r5a.pt, window_s: 6}
+- {name: r5b, type: mossformergan, ckpt: checkpoints/r5b.pt, window_s: 6}
+- {name: v2, type: mossformergan, ckpt: checkpoints/v2.pt, window_s: 6}
+- {name: mganall, type: mossformergan, ckpt: checkpoints/mganall.pt, window_s: 6}
+- {name: mf2all, type: mossformer2, ckpt: checkpoints/mf2all.pt, window_s: 3}
+- {name: mf2long, type: mossformer2, ckpt: checkpoints/mf2long.pt, window_s: 3}
+- {name: pnt20, type: mossformergan, ckpt: checkpoints/pnt20.pt, window_s: 6}
+- {name: pntres20, type: mossformergan_res, ckpt: checkpoints/pntres20.pt, window_s: 6}
+fusions:
+- name: fu6
+  ckpt: checkpoints/fusion_v6.pt
+  ch: 64
+  dil: [1, 2, 4, 8, 16, 1, 2, 4, 8, 16]
+  w0: [0.08, 0.08, 0.08, 0.08, 0.2, 0.0, 0.08, 0.08, 0.0, 0.0, 0.08, 0.08, 0.08, 0.08, 0.0, 0.0, 0.0, 0.0, 0.0]
+  members: [asr1_best, asr1s7, asr3c, asr5, mf2ft, ss, asr10, asr5b, res2, ss2, r5a, r5b, v2, mganall, mf2all, mf2long, pnt20, pntres20]
+  weight: 0.4
+- name: fu4
+  ckpt: checkpoints/fusion_v4.pt
+  ch: 64
+  dil: [1, 2, 4, 8, 16, 1, 2, 4, 8, 16]
+  w0: [0.08, 0.08, 0.08, 0.08, 0.2, 0.0, 0.08, 0.08, 0.0, 0.0, 0.08, 0.08, 0.08, 0.08, 0.0, 0.0, 0.0]
+  members: [asr1_best, asr1s7, asr3c, asr5, mf2ft, ss, asr10, asr5b, res2, ss2, r5a, r5b, v2, mganall, mf2all, mf2long]
+  weight: 0.2
+- name: fu2
+  ckpt: checkpoints/fusion_v2.pt
+  ch: 64
+  dil: [1, 2, 4, 8, 16, 1, 2, 4, 8, 16]
+  w0: [0.1333, 0.1333, 0.1333, 0.1333, 0.2, 0.0, 0.1334, 0.1334, 0.0, 0.0, 0.0]
+  members: [asr1_best, asr1s7, asr3c, asr5, mf2ft, ss, asr10, asr5b, res2, ss2]
+  weight: 0.2
+- name: fu3l
+  ckpt: checkpoints/fusion_v3l.pt
+  ch: 64
+  dil: [1, 2, 4, 8, 16, 1, 2, 4, 8, 16]
+  w0: [0.1333, 0.1333, 0.1333, 0.1333, 0.2, 0.0, 0.1334, 0.1334, 0.0, 0.0, 0.0]
+  members: [asr1_best, asr1s7, asr3c, asr5, mf2ft, ss, asr10, asr5b, res2, ss2]
+  weight: 0.2
+gate_margin_s: 0.1
+outside_w: 0.5
+bundled_events: events/test_events_phase2_v6.json

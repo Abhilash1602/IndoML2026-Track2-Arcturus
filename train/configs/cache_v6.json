@@ -1,0 +1,16 @@
+{
+ "src": "data/fusion/train_v5.npz",
+ "dst": "data/fusion/train_v6.npz",
+ "new": [
+  [
+   "pnt20",
+   "mgan",
+   "checkpoints/mgan_pnt20/last.pt"
+  ],
+  [
+   "pntres20",
+   "res",
+   "checkpoints/mgan_pntres20/last.pt"
+  ]
+ ]
+}
